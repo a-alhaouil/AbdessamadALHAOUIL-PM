@@ -16,8 +16,13 @@ Edit Profil :
 ![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/694fbc28-53eb-4309-95ad-3bcdcab29fad)
 
 User Dailly  Activities :
+User verified by email
 
 ![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/78c22207-27b1-4536-8412-954853120615)
+
+User not verified 
+
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/0eab10c5-9545-4582-895d-e3b6e4496420)
 
 
 Map Activity: 
