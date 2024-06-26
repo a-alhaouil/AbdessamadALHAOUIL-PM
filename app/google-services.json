@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "506098604531",
+    "project_id": "abdessamadalhaouil-pm",
+    "storage_bucket": "abdessamadalhaouil-pm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506098604531:android:6c3c261ce08caea2fcda86",
+        "android_client_info": {
+          "package_name": "com.example.abdessamadalhaouil_pm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0XmlI5zGxn9ReDxEr_qWtDailGT3seqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

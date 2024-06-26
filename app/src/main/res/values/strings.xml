@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">User Daily Activities</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="activity">Activity</string>
+    <string name="probability">Probability</string>
+    <string name="jumping">Jumping</string>
+    <string name="sitting">Sitting</string>
+    <string name="standing">Standing</string>
+    <string name="walking">Walking</string>
+    <string name="running">Running</string>
+    <string name="x">X</string>
+    <string name="y">Y</string>
+    <string name="z">Z</string>
+    <string name="title_activity_maps">Maps</string>
+</resources>

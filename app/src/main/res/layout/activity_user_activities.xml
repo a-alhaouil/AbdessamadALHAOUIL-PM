@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/aaaaa">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ededed"
+        android:padding="0dp"
+        tools:context="io.github.introml.activityrecognition.MainActivity">
+
+        <TableRow
+            android:id="@+id/title_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:background="@android:color/holo_orange_dark">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_weight="1"
+                android:text="@string/activity"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_weight="1"
+                android:text="@string/probability"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"/>
+        </TableRow>
+
+
+
+        <TableRow
+            android:id="@+id/jumping_row"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/jumping_title"
+                android:layout_weight="1"
+                android:text="@string/jumping"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/jumping_prob"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/sitting_row"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/sitting_title"
+                android:layout_weight="1"
+                android:text="@string/sitting"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sitting_prob"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/standing_row"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/standing_title"
+                android:layout_weight="1"
+                android:text="@string/standing"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/standing_prob"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/walking_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/walking_title"
+                android:layout_weight="1"
+                android:text="@string/walking"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/walking_prob"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/running_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/running_title"
+                android:layout_weight="1"
+                android:text="@string/running"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/running_prob"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+    </TableLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/skyblue"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_x"-->
+<!--            android:layout_width="139dp"-->
+<!--            android:layout_height="38dp"-->
+<!--            android:paddingLeft="36dp"-->
+<!--            android:paddingTop="12dp"-->
+<!--            android:text="@string/x"-->
+<!--            android:textSize="12dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_y"-->
+<!--            android:layout_width="144dp"-->
+<!--            android:layout_height="38dp"-->
+<!--            android:paddingTop="12dp"-->
+<!--            android:paddingLeft="68dp"-->
+<!--            android:text="@string/y"-->
+<!--            android:textSize="12dp"-->
+<!--            android:textStyle="bold"-->
+<!--             />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_z"-->
+<!--            android:layout_width="128dp"-->
+<!--            android:layout_height="38dp"-->
+<!--            android:paddingLeft="70dp"-->
+<!--            android:paddingTop="12dp"-->
+<!--            android:text="@string/z"-->
+<!--            android:textSize="12dp"-->
+<!--            android:textStyle="bold"-->
+<!--             />-->
+
+<!--    </LinearLayout>-->
+</ScrollView>
