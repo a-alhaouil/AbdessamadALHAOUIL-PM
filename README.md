@@ -9,11 +9,13 @@ Login:
 
 Profil Activity:
 
-![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/6e988574-e6ea-4329-adbc-72ea992978f7)
-
 User verified by email
 
-![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/78c22207-27b1-4536-8412-954853120615)
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/0eab10c5-9545-4582-895d-e3b6e4496420)
+
+User not verified 
+
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/6e988574-e6ea-4329-adbc-72ea992978f7)
 
 Edit Profil :
 
@@ -21,10 +23,7 @@ Edit Profil :
 
 User Dailly  Activities :
 
-
-User not verified 
-
-![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/0eab10c5-9545-4582-895d-e3b6e4496420)
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/78c22207-27b1-4536-8412-954853120615)
 
 
 Map Activity: 
