@@ -11,14 +11,16 @@ Profil Activity:
 
 ![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/6e988574-e6ea-4329-adbc-72ea992978f7)
 
+User verified by email
+
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/78c22207-27b1-4536-8412-954853120615)
+
 Edit Profil :
 
 ![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/694fbc28-53eb-4309-95ad-3bcdcab29fad)
 
 User Dailly  Activities :
-User verified by email
 
-![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/78c22207-27b1-4536-8412-954853120615)
 
 User not verified 
 
