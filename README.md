@@ -9,13 +9,13 @@ Login:
 
 Profil Activity:
 
-User verified by email
-
-![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/0eab10c5-9545-4582-895d-e3b6e4496420)
-
 User not verified 
 
 ![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/6e988574-e6ea-4329-adbc-72ea992978f7)
+
+User verified by email
+
+![image](https://github.com/a-alhaouil/AbdessamadALHAOUIL-PM/assets/152272492/0eab10c5-9545-4582-895d-e3b6e4496420)
 
 Edit Profil :
 
