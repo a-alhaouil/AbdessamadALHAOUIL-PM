@@ -18,4 +18,7 @@
     <string name="y">Y</string>
     <string name="z">Z</string>
     <string name="title_activity_maps">Maps</string>
+    <string name="channel_name">Activity Detection Notifications</string>
+    <string name="channel_description">Receive notifications when activity changes are detected based on accelerometer data.</string>
+
 </resources>

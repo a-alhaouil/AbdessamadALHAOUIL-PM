@@ -82,7 +82,11 @@ public class EditProfile extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profileImageView);
+                Picasso.get()
+                        .load(uri)
+                        .resize(200, 200)
+                        .centerCrop()
+                        .into(profileImageView);
             }
         });
 

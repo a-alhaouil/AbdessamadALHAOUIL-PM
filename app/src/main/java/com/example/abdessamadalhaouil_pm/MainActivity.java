@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userId;
     Button resendCode;
+    ImageButton logoutButton;
+
+
+
     Button resetPassLocal,changeProfileImage,userActivitiesBtn,mapBtn;
     FirebaseUser user;
     ImageView profileImage;
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         gender    = findViewById(R.id.pprofileGander);
         userActivitiesBtn = findViewById(R.id.UserActivitiesBtn);
         mapBtn = findViewById(R.id.MapBtn);
+        logoutButton = findViewById(R.id.buttonn);
 
 
 
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         changeProfileImage = findViewById(R.id.changeProfile);
 
 
+
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -75,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profileImage);
+                Picasso.get()
+                        .load(uri)
+                        .resize(200, 200)
+                        .centerCrop()
+                        .into(profileImage);
             }
         });
 
@@ -191,10 +202,7 @@ public class MainActivity extends AppCompatActivity {
         userActivitiesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Fragment fragment = new UserActivities();
-////                startActivity(new Intent(getApplicationContext(),UserActivities.class));
-//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.aaaaa, fragment);
+
                 Intent intent = new Intent(MainActivity.this,UserActivities.class);
                 startActivity(intent);
 
@@ -203,18 +211,21 @@ public class MainActivity extends AppCompatActivity {
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Fragment fragment = new UserActivities();
-////                startActivity(new Intent(getApplicationContext(),UserActivities.class));
-//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.aaaaa, fragment);
+
                 Intent intent = new Intent(MainActivity.this,MapsActivity.class);
                 startActivity(intent);
 
             }
         });
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
     }
 
-    public void logout(View view) {
+    public void logout() {
         FirebaseAuth.getInstance().signOut();//logout
         startActivity(new Intent(getApplicationContext(),Login.class));
         finish();

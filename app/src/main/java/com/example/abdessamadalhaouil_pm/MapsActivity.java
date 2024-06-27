@@ -7,6 +7,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 
@@ -33,7 +37,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      TextView caloriesTextView;
      TextView distanceTextView;
 
-
+    Button startButton;
+    Button stopButton;
     private LocationManager locationManager;
 
     private Location lastLocation;
@@ -42,7 +47,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private double totalDistance = 0.0;
     private long startTime = 0;
+    private boolean isCalculating = false;
+
     static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
+
+    private Polyline polyline;
+
+    private ArrayList<LatLng> pathPoints = new ArrayList<>();
 
 
 
@@ -62,6 +73,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         caloriesTextView = findViewById(R.id.calories);
 
+        startButton = findViewById(R.id.start_button);
+        stopButton = findViewById(R.id.stop_button);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -77,8 +91,41 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, this);
         startTime = System.currentTimeMillis();
 
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCalculating();
+            }
+        });
 
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopCalculating();
+            }
+        });
 
+        stopCalculating();
+
+    }
+    private void startCalculating() {
+        isCalculating = true;
+        totalDistance = 0.0;
+        speeds.clear();
+        startTime = System.currentTimeMillis();
+        startButton.setEnabled(false);
+        stopButton.setEnabled(true);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, this);
+        }
+    }
+
+    private void stopCalculating() {
+        isCalculating = false;
+        startButton.setEnabled(true);
+        stopButton.setEnabled(false);
+        locationManager.removeUpdates(this);
     }
 
     @Override
@@ -92,9 +139,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String[] ss = new String[1];
             ss[0] = Manifest.permission.ACCESS_COARSE_LOCATION;
             requestPermissions(ss, 997);
+
+
         }
         // Enable current location on the map
         mMap.setMyLocationEnabled(true);
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         if(isLocationEnabled()){
             Location loc = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -119,6 +169,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         } else {
             Toast.makeText(this, "Unable to get current location", Toast.LENGTH_SHORT).show();
         }
+        polyline = mMap.addPolyline(new PolylineOptions().width(5).color(0xFF0000FF));
+
 
     }
 
@@ -126,29 +178,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+
     }
 
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
+        if (!isCalculating) {
+            return;
+        }
+
         if (lastLocation != null) {
-            // Calculate distance between lastLocation and current location
             float[] results = new float[1];
             Location.distanceBetween(lastLocation.getLatitude(), lastLocation.getLongitude(),
                     location.getLatitude(), location.getLongitude(), results);
             float distanceInMeters = results[0];
             totalDistance += distanceInMeters;
 
-            // Calculate speed in meters per second
             long elapsedTime = System.currentTimeMillis() - startTime;
-            float speed = distanceInMeters / (elapsedTime / 1000.0f); // meters per second
+            float speed = distanceInMeters / (elapsedTime / 1000.0f);
             speeds.add(speed);
 
-            // Display distance and speed
             distanceTextView.setText(String.format("Distance: %.2f meters", totalDistance));
             speedTextView.setText(String.format("Speed: %.2f m/s", speed));
 
-            // Calculate average speed
             float sum = 0;
             for (float s : speeds) {
                 sum += s;
@@ -157,13 +211,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             float averageSpeed = sum / speeds.size();
             averageSpeedTextView.setText(String.format("Avg Speed: %.2f m/s", averageSpeed));
 
-            // Determine activity name
             String activityName = getActivityName(speed);
             activityNameTextView.setText(activityName);
 
-            // Calculate calories
             float calories = calculateCalories(speed, elapsedTime);
             caloriesTextView.setText(String.format("Calories: %.2f kcal", calories));
+
+            LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+            pathPoints.add(currentLatLng);
+            polyline.setPoints(pathPoints);
         }
 
         lastLocation = location;
